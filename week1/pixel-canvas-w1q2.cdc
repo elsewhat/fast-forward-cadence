@@ -80,7 +80,8 @@ pub resource Printer {
       picture.display()
       self.printHistory[canvas.pixels]= true
       destroy picture
-      return nil
+      //not allowed to return the picture likely due to scoping
+      return <- create Picture(canvas: canvas)
     }else {
       log("Canvas has already been printed");
       return nil

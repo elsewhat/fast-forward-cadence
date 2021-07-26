@@ -68,7 +68,7 @@ pub fun serializeStringArray(_ lines: [String]): String {
 }
 
 pub resource Printer {
-  pub let printHistory:{String: Bool}
+  pub let printHistory:{String:Bool}
   
   init() {
     self.printHistory = {}
@@ -79,7 +79,8 @@ pub resource Printer {
       let picture <- create Picture(canvas: canvas)
       picture.display()
       self.printHistory[canvas.pixels]= true
-      return picture
+      destroy picture
+      return nil
     }else {
       log("Canvas has already been printed");
       return nil
@@ -102,7 +103,9 @@ pub fun main() {
     pixels: serializeStringArray(pixelsX)
   )
   let printer <- create Printer()
-  printer.print(canvas: canvasX)
-  printer.print(canvas: canvasX)
+  let result1 <- printer.print(canvas: canvasX)
+  let result2 <- printer.print(canvas: canvasX)
   destroy printer
+  destroy result1
+  destroy result2
 }

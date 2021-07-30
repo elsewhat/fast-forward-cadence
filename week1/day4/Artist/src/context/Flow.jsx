@@ -188,7 +188,7 @@ function Provider(props) {
 
             `,
             fcl.args([
-              fcl.arg(user?.addr, FlowTypes.Address)
+              fcl.arg(state.user.addr, FlowTypes.Address)
             ]),
           ])
           .then(fcl.decode);

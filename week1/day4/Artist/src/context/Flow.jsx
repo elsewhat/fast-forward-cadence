@@ -259,6 +259,11 @@ function Provider(props) {
             }
           }
         `,
+				fcl.args([
+					fcl.arg(5, FlowTypes.Int),
+					fcl.arg(5, FlowTypes.Int),
+					fcl.arg(picture.pixels, FlowTypes.String),
+				]),        
         fcl.payer(fcl.authz),
         fcl.proposer(fcl.authz),
         fcl.authorizations([fcl.authz]),

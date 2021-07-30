@@ -6,10 +6,11 @@
 		}
 	},
 	"contracts": {
-    "Hello": "./artist.contract.cdc"
-  },
+        "Artist": "./artist.contract.cdc"
+    },
 	"networks": {
 		"emulator": "127.0.0.1:3569",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
 	},
 	"accounts": {
 		"emulator-account": {
@@ -23,14 +24,14 @@
 				"index": 0,
 				"signatureAlgorithm": "ECDSA_secp256k1",
 				"hashAlgorithm": "SHA3_256",
-				"privateKey": "70d4eebade37eabe0a5df1b1664acf25245187068665c529c1d63f0a214dadfa"
+				"privateKey": "3df2d28cd2c0c786b62d7b4f3f1f950aa52eaa486babf6016acf414579847c5a"
 			}
 		}
 	},
 	"deployments": {
     "emulator": {
       "emulator-artist": [
-        "Hello"
+        "Artist"
       ]
     }
   }

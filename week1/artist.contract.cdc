@@ -45,6 +45,7 @@ pub contract Artist {
         var index = 0
         while index < self.pictures.length {
           canvases.append(self.pictures[index].canvas)
+          index = index +1
         }
         return canvases
       }

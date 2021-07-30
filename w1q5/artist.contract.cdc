@@ -47,6 +47,7 @@ pub contract Artist {
         var index = 0
         while index < self.pictures.length {
           canvases.append(self.pictures[index].canvas)
+          index = index +1
         }
         return canvases
       }
@@ -74,6 +75,7 @@ pub contract Artist {
 
     pub fun print(canvas: Canvas): @Picture? {
       // Canvas needs to fit Printer's dimensions.
+
       if canvas.pixels.length != Int(self.width * self.height) {
         return nil
       }
@@ -89,10 +91,10 @@ pub contract Artist {
       if self.prints.containsKey(canvas.pixels) == false {
         let picture <- create Picture(canvas: canvas)
         self.prints[canvas.pixels] = canvas
-        emit PicturePrintSuccess(canvas.pixels)
+        emit PicturePrintSuccess(pixels:canvas.pixels)
         return <- picture
       } else {
-        emit PicturePrintFailure(canvas.pixels)
+        emit PicturePrintFailure(pixels:canvas.pixels)
         return nil
       }
     }
